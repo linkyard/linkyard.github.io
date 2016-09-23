@@ -72,7 +72,17 @@ window.smartsupp||(function(d) {
   c.type='text/javascript';c.charset='utf-8';c.async=true;
   c.src='//www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
 })(document);
+
 _smartsupp.gaKey = 'UA-84472667-1';
+
+// Change banner by status
+smartsupp('on', 'status', function(status) {
+  if(status == 'online') {
+    $('#chat-button').show();
+  } else {
+    $('#chat-button').hide();
+  }
+});
 </script>
 
 <script>
@@ -284,8 +294,8 @@ Zukünftige Branchenleader sind schnell und anpassungsfreudig. Ihre Mitarbeiter 
                     </p>
                   </div>
                 </article>
-                <div class="containerdiv" style="width:200px;">
-                  <input class="button" type="button" onClick="alert('hello world!');" value="Chat starten" align="center" width="150">
+                <div class="containerdiv" style="width:200px;" id="chat-button">
+                  <input class="button" type="button" data-api="smartsupp" data-operation="send" data-text="Guten Tag" value="Chat starten" align="center" width="150">
                 </div>
               </article>
             </div>
